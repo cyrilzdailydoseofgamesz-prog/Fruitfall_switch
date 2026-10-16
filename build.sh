@@ -9,5 +9,5 @@ LF="-specs=$DEVKITPRO/libnx/switch.specs $ARCH -L$DEVKITPRO/libnx/lib -L$DEVKITP
 mkdir -p out
 aarch64-none-elf-gcc $CF source/main.c -o out/fruitfall.elf $LF $($PKG --libs sdl2) -lnx -lm
 nacptool --create "Fruitfall" "J" "1.0.0" out/fruitfall.nacp
-elf2nro out/fruitfall.elf out/fruitfall.nro --nacp=out/fruitfall.nacp --romfs=romfs
+elf2nro out/fruitfall.elf out/fruitfall.nro --nacp=out/fruitfall.nacp --romfsdir=romfs
 ls -la out/fruitfall.nro

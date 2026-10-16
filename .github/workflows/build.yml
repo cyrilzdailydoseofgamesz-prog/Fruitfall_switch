@@ -9,7 +9,7 @@ jobs:
       - name: Install SDL2
         run: dkp-pacman -Syu --noconfirm switch-sdl2 switch-pkg-config || dkp-pacman -S --noconfirm switch-sdl2 switch-pkg-config
       - name: Build
-        run: ./build.sh
+        run: bash build.sh.
       - uses: actions/upload-artifact@v4
         with:
           name: fruitfall-nro

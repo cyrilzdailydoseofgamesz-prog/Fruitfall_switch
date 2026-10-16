@@ -1,0 +1,16 @@
+name: Build Switch NRO
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: devkitpro/devkita64
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SDL2
+        run: dkp-pacman -Syu --noconfirm switch-sdl2 switch-pkg-config || dkp-pacman -S --noconfirm switch-sdl2 switch-pkg-config
+      - name: Build
+        run: ./build.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fruitfall-nro
+          path: out/fruitfall.nro
